@@ -16,30 +16,22 @@ protocol ClientProtocol {
 
 final class Client: ClientProtocol {
     private let manager = Alamofire.SessionManager(configuration: URLSessionConfiguration.default)
-    private let baseURL = URL(string: BASE_URL)!
+    private let baseURL: URL
     private let queue = DispatchQueue(label: "Network_Queue")
+    
+    init(with baseURL: URL) {
+        self.baseURL = baseURL
+    }
     
     public func request<Response>(_ endpoint: EndPoint<Response>) -> Single<Response> {
         return Single<Response>.create { observer in
-            // add some auth keys
-            var parameters: [String : Any] = [:]
-            if let param = endpoint.parameters {
-                for key in param.keys {
-                    parameters[key] = param[key]
-                }
-            }
-            let timestamp = Date().ticks
-            let hash = md5("\(timestamp)\(PRIVATE_KEY)\(PUBLIC_KEY)")
-            parameters["ts"] = timestamp
-            parameters["hash"] = hash
-            parameters["apikey"] = PUBLIC_KEY
+            self.showNetworkActivityIndicator()
             
             let request = self.manager.request(
                 self.url(path: endpoint.path),
                 method: self.httpMethod(from: endpoint.method),
-                parameters: parameters)
+                parameters: endpoint.parameters)
             
-            self.showNetworkActivityIndicator()
             request
                 .validate()
                 .debugLog()
@@ -48,7 +40,13 @@ final class Client: ClientProtocol {
                     let result = response.result.flatMap(endpoint.decode)
                     switch result {
                     case let .success(val): observer(.success(val))
-                    case let .failure(err): observer(.error(err))
+                    case let .failure(err):
+                        if let data = response.data,
+                           let apiErr = try? JSONDecoder().decode(ApiError.self, from: data) {
+                            observer(.error(apiErr))
+                        } else {
+                            observer(.error(err))
+                        }
                     }
             }
             

@@ -11,7 +11,7 @@ import RxSwift
 
 class CharacterListViewModel {
     fileprivate let disposeBag = DisposeBag()
-    fileprivate let client = Client()
+    fileprivate let client = Client(with: URL(string: BASE_URL)!)
     fileprivate var characters: [CharacterModel]? {
         didSet {
             self.listener?(self.characters!)

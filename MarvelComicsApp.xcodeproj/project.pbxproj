@@ -22,6 +22,7 @@
 		C41471A52019D06F004B3A47 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41471A42019D06F004B3A47 /* ApiResponse.swift */; };
 		C41471A72019D10D004B3A47 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41471A62019D10D004B3A47 /* DataSet.swift */; };
 		C41471AB2019D1EC004B3A47 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41471AA2019D1EC004B3A47 /* Character.swift */; };
+		C453ECCB201C1586007B164F /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C453ECCA201C1586007B164F /* ApiError.swift */; };
 		C4658126201AC08600F8DFBD /* Commons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4658125201AC08600F8DFBD /* Commons.swift */; };
 		C465812B201AE4EB00F8DFBD /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C465812A201AE4EB00F8DFBD /* CharacterListViewModel.swift */; };
 		C465812D201B07C500F8DFBD /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C465812C201B07C500F8DFBD /* CharacterDetailViewController.swift */; };
@@ -62,6 +63,7 @@
 		C41471A42019D06F004B3A47 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		C41471A62019D10D004B3A47 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		C41471AA2019D1EC004B3A47 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		C453ECCA201C1586007B164F /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		C4658125201AC08600F8DFBD /* Commons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commons.swift; sourceTree = "<group>"; };
 		C4658128201AC4C700F8DFBD /* MarvelComicsApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MarvelComicsApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		C465812A201AE4EB00F8DFBD /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
@@ -174,7 +176,6 @@
 		C41471972019B780004B3A47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C41471A42019D06F004B3A47 /* ApiResponse.swift */,
 				C41471A62019D10D004B3A47 /* DataSet.swift */,
 				C41471AA2019D1EC004B3A47 /* Character.swift */,
 				C4658131201B2D2A00F8DFBD /* CommonModel.swift */,
@@ -193,6 +194,8 @@
 		C414719B2019BD60004B3A47 /* Net */ = {
 			isa = PBXGroup;
 			children = (
+				C453ECCA201C1586007B164F /* ApiError.swift */,
+				C41471A42019D06F004B3A47 /* ApiResponse.swift */,
 				C41471992019BB62004B3A47 /* Client.swift */,
 				C414719C2019BD73004B3A47 /* EndPoint.swift */,
 				C414719E2019C8E4004B3A47 /* API.swift */,
@@ -437,6 +440,7 @@
 				C414719F2019C8E4004B3A47 /* API.swift in Sources */,
 				C4658132201B2D2A00F8DFBD /* CommonModel.swift in Sources */,
 				C41471AB2019D1EC004B3A47 /* Character.swift in Sources */,
+				C453ECCB201C1586007B164F /* ApiError.swift in Sources */,
 				C41471A72019D10D004B3A47 /* DataSet.swift in Sources */,
 				C41471952019B4D9004B3A47 /* Configurations.swift in Sources */,
 			);
